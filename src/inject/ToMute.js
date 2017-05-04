@@ -10,7 +10,7 @@ chrome.extension.sendMessage({}, function(response) {
 				&& document.getElementsByClassName("player-tip")[2].getAttribute("data-tip") == "Mute") {
 				document.getElementsByClassName("player-button player-button--volume qa-control-volume")[0].click();
 			}
-			if (document.getElementsByClassName("player-ad-overlay js-player-ad-overlay")[0].getAttribute("href") == "" 
+			if (!document.getElementsByClassName("player-ad-overlay js-player-ad-overlay")[0].getAttribute("href") 
 				&& document.getElementsByClassName("player-tip")[2].getAttribute("data-tip") == "Unmute") {
 				document.getElementsByClassName("player-button player-button--volume qa-control-volume")[0].click();
 			}
@@ -19,7 +19,6 @@ chrome.extension.sendMessage({}, function(response) {
 			attributes: true
 		});
 		// ----------------------------------------------------------
-
 	}
 	}, 10);
 });
