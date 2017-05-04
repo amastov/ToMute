@@ -1,6 +1,6 @@
 {
   "name": "ToMute",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "manifest_version": 2,
   "description": "Extension to mute Twitch when ads play!",
   "homepage_url": "https://github.com/amastov/ToMute",
