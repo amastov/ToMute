@@ -1,7 +1,7 @@
 function ToMute() {
   let spans = document.getElementsByTagName('span');
   let spanArr = spans && spans.length ? [...spans] : undefined;
-  let isAdPlaying = spanArr
+  let isAdPlaying = spanArr && spanArr.length
     ? spanArr.some(
         (x) =>
           x.hasAttribute('data-a-target') &&
@@ -30,14 +30,14 @@ function ToMute() {
 
 chrome.runtime.sendMessage('Start ToMute', function (response) {
   if (response == 'Success') {
-    var readyStateCheckInterval = setInterval(function () {
+    let readyStateCheckInterval = setInterval(function () {
       if (document.readyState === 'complete') {
         clearInterval(readyStateCheckInterval);
         // ----------------------------------------------------------
         // This part of the script triggers when page is done loading
         MutationObserver =
           window.MutationObserver || window.WebKitMutationObserver;
-        var observer = new MutationObserver(function (mutations, observer) {
+        let observer = new MutationObserver(function (mutations, observer) {
           ToMute();
         });
 
