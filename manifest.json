@@ -1,6 +1,6 @@
 {
   "name": "ToMute",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "manifest_version": 3,
   "description": "Extension to mute Twitch when ads play!",
   "homepage_url": "https://github.com/amastov/ToMute",
@@ -10,17 +10,14 @@
     "128": "icons/icon128.png"
   },
   "default_locale": "en",
-  "permissions": [
-    "*://*.twitch.tv/*"
-  ],
+  "host_permissions": ["*://*.twitch.tv/*"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
   "content_scripts": [
     {
-      "matches": [
-        "*://*.twitch.tv/*"
-      ],
-      "js": [
-        "src/inject/ToMute.js"
-      ]
+      "matches": ["*://*.twitch.tv/*"],
+      "js": ["src/ToMute.js"]
     }
   ]
 }
